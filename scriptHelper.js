@@ -4,20 +4,21 @@ require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    
 
     document.getElementById("missionTarget").innerHTML = 
-                 `<h2>Mission Destination</h2>
+                 `
+                 <h2>Mission Destination</h2>
                  <ol>
                      <li>Name: ${name}</li>
-                     <li>Diameter: </li>
+                     <li>Diameter: ${diameter}</li>
                      <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
+                     <li>Distance from Earth: ${distance}</li>
+                     <li>Number of Moons: ${moons}</li>
                  </ol>
-                 <img src="">`
+                 <img src="${imageUrl}">
+                 `;
     
- };
+ }
  
  function validateInput(testInput) {
     if (testInput === '') {
@@ -67,9 +68,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  };
  /*
  async function myFetch() {
-     let planetsReturned;
- 
-     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json")
+     let planetsReturned= await fetch("https://handlers.education.launchcode.org/static/planets.json")
         .then(function(response) {
             console.log(response);
          });
@@ -78,18 +77,34 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
 */
 
+
+ async function myFetch() {
+    let planetsReturned;
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json")
+        .then(function(response) {
+            //console.log(response);
+            return response.json();
+         });
+ 
+     return planetsReturned;
+ }
+
+
+ /* ### THIS ONE WORKS ###
 function myFetch() {
     let planetsReturned = fetch("https://handlers.education.launchcode.org/static/planets.json")
        .then(function(response) {
            return response.json();
         });
+
+        
     return planetsReturned;
 }
-
+*/
  
  
  function pickPlanet(planets) {
-    let randomPlanet = Math.floor(Math.random() * (planets.length));
+    let randomPlanet = Math.floor(Math.random() * planets.length);
     return (planets[randomPlanet]);
  }
  
