@@ -1,6 +1,6 @@
 // Write your helper functions here!
 
-require('cross-fetch/polyfill');
+//require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
@@ -66,6 +66,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
     }
  };
+ 
  /*
  async function myFetch() {
      let planetsReturned= await fetch("https://handlers.education.launchcode.org/static/planets.json")

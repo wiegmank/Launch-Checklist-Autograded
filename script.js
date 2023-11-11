@@ -1,11 +1,10 @@
 // Write your JavaScript code here!
 
-const { addDestinationInfo, pickPlanet } = require("./scriptHelper");
+//const { addDestinationInfo, pickPlanet } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
 
     //let form = document.querySelector("form");
-
 
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -21,10 +20,11 @@ window.addEventListener("load", function() {
 
         //THIS IS JUST TO TEST PLANET PICKER - FINISH PART 3. PLANET PICKER IS WORKING. NOW UPDATE DOM 
         //addDestinationInfo(lineAbove)
+        
         selectedPlanet = pickPlanet(listedPlanets);
         
         addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image)
-
+        
     })
 
 
